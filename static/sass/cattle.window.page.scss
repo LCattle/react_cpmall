@@ -1,0 +1,58 @@
+/*pager*/
+.pager{
+	list-style:none outside none;
+	margin:20px 0 0;
+	padding:0;
+	text-align:center
+}
+.pager li{
+	color:#333;
+	display:
+	inline-block;
+	margin:0;
+	padding:0;
+}
+.pager li.pager-current,.pager li a,.pager li span{
+	display:inline-block;
+	border:1px solid #eaeaea;
+	border-right:0;
+	font-size:12px;
+	height:40px;
+	line-height:40px;
+	width:50px;
+	text-align:center;
+	text-decoration:none;
+}
+.pager-next,.pager-previous{
+	font-family: 'Glyphter';
+	font-style: normal;
+   font-weight: normal;
+   line-height: 1;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   vertical-align: bottom;
+}
+.pager-next{
+	border-right:1px solid #eaeaea;
+}
+.pager li span{
+	background:none;color:#999
+}
+.pager .pager-item a{
+	background:none;
+	color:#999
+}
+.pager-next span,.pager-previous span{
+	color: #eaeaea;
+}
+.pager li.pager-current{
+	color:#55A0FF;
+}
+.pager li a:hover{
+	color:#666;
+}
+li.pager-dian{
+	width:40px;
+	text-align: center;
+	margin-right:-10px;
+}

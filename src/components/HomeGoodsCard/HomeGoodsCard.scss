@@ -1,0 +1,147 @@
+@import '../../../static/sass/_rem.scss';
+@import '../../../static/sass/_utilities.scss';
+@import '../../../static/sass/common.scss';
+@import '../../../static/sass/animation.scss';
+@include global-reset;
+// 项目公共变量定义
+@import '../../../static/sass/coolpad_variable.scss';
+// 项目公共样式
+@import '../../../static/sass/coolpad_public.scss';
+// 项目公共UI组件样式
+@import '../../../static/sass/coolpad_component.scss';
+
+@mixin GableGoodsItem{
+	.goods_box{
+		    width: 100%;
+	    display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: -moz-box;
+	    display: -moz-flex;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-box-pack: left;
+	    -ms-flex-pack: left;
+	    -webkit-justify-content: left;
+	    justify-content: left;
+	    -webkit-box-align: left;
+	    -ms-flex-align: left;
+	    -moz-flex-align: left;
+	    -webkit-align-items: left;
+	    flex-wrap: wrap;
+	    margin-top:.266667rem;
+	}
+	.li_inner{
+		webkit-box-flex: 1.0;
+    -moz-flex-grow: 1;
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    -moz-box-flex: 1.0;
+    -webkit-box-flex: 1.0;
+    -moz-flex-shrink: 1;
+    -webkit-flex-shrink: 1;
+    flex-shrink: 1;
+    width: calc(50% - 0.16rem);
+    width: -webkit-calc(50% - 0.16rem);
+    border-radius: .10667rem;
+    margin-right: .16rem;
+    margin-bottom: .16rem;
+    padding-top: .37rem;
+    background: #fff;
+    padding-bottom: .37rem;
+    position: relative;
+	    & > a {
+	    	display: block;
+	    	text-align: center;
+	    }
+	}
+	.big_li_inner{
+		width: 100%;
+    	margin-bottom: .16rem;
+	}
+	.li_inner[data-fix="goods_item_fix"]{
+		margin-right: 0px;
+	}
+	.name, .explain, .price {
+    	display: block;
+    	width: 100% !important;
+    	padding: 0 !important;
+    	text-align: center;
+	}
+	.name {
+	    width: calc(100% - 0.533333rem);
+	    width: -webkit-calc(100% - 0.533333rem);
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    height: .93333rem;
+	    padding: .26667rem .26667rem 0;
+	    color: #666;
+	    @include font-dpr(13px, .93333rem);
+	}
+	.explain {
+	    width: 100vw;
+	    width: 100%;
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    height: .53333rem;
+	    color: #999;
+	    opacity: 0.98;
+	    @include font-dpr(12px, .53333rem);
+	}
+	.price{
+		opacity: 0.98;
+		color: #2485FF;
+		@include font-dpr(18px, 1.466667rem);
+	}
+	.hot-p-img{
+		border-radius:.106667rem;
+		border:.026666rem solid #eee;
+		@include rem((
+			width: 300px,
+			height:300px
+		))
+	}
+	.hot-p-big-img{
+		    width: 100%;
+    	display: block;
+    	overflow: hidden;
+    	height: 3.2rem !important;
+	}
+	.li_inner[data-tag-show='show-tag']:before {
+	    z-index: 89;
+	    content: attr(data-content);
+	    color: #fff;
+	    font-size: 0.2933333rem;
+	    font-family: "Rubik-Regular","PingFang SC","PingHei","PingFangHei","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,STHeiTi,sans-serif,monospace;
+	    text-align: center;
+	    line-height: 0.37rem;
+	    position: absolute;
+	    width: 0.75rem;
+	    height: 0.75rem;
+	    border: 0.1566666rem solid #33C5F4;
+	    border-radius: 50%;
+	    top: 0.2133333rem;
+	    right: 0.2133333rem;
+	    opacity: 0.9;
+	    background: #33C5F4;
+	}
+	.li_inner[data-tag-show='two-show-tag']:before {
+	    z-index: 89;
+	    content: attr(data-content);
+	    color: #fff;
+	    font-family: "Rubik-Regular","PingFang SC","PingHei","PingFangHei","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,STHeiTi,sans-serif,monospace;
+	    font-size: 0.2933333rem;
+	    text-align: center;
+	    line-height: 1.0133333rem;
+	    position: absolute;
+	    width: 1.0133333rem;
+	    height: 1.0133333rem;
+	    border-radius: 50%;
+	    top: 0.2133333rem;
+	    right: 0.2133333rem;
+	    opacity: 0.9;
+	    background: #FC372C;
+	}
+}
+@include GableGoodsItem;

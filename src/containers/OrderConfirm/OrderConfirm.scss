@@ -1,0 +1,705 @@
+@import '../../../static/sass/_rem.scss';
+@import '../../../static/sass/_utilities.scss';
+@import '../../../static/sass/common.scss';
+@import '../../../static/sass/animation.scss';
+@include global-reset;
+// 项目公共变量定义
+@import '../../../static/sass/coolpad_variable.scss';
+// 项目公共样式
+@import '../../../static/sass/coolpad_public.scss';
+// 项目公共UI组件样式
+@import '../../../static/sass/coolpad_component.scss';
+$c-font-4a: #4A4A4A;
+$c-box-line: rgba(245,245,245,0.6);
+$c-split-line: rgba(225,225,225,0.6);
+$title-height: 100px;
+$slide-box-height: 482px;
+$item-width: 120px;
+$item-height: 50px;
+$item-height-medium: 70px;
+
+
+
+
+@media screen and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5) {
+
+  #render {
+    padding-bottom: 0;
+    @include rem((
+      margin: 100px auto 0
+    ));
+  }
+
+  .orderconfirm_goods {
+    background-color: #fff;
+  }
+
+  .orderconfirm_pay, .orderconfirm_delivery, .orderconfirm_time, .orderconfirm_cheque, .orderconfirm_coupon {
+    width: calc(100% - 0.533333rem);
+    width: -webkit-calc(100% - 0.533333rem);
+    @include rem((
+      height: $title-height,
+      padding: 0 20px
+    ));
+  }
+
+  //
+  .orderconfirm_item_title, .addrcard_container, .orderconfirm_item,
+  .orderconfirm_item_cheque, .orderconfirm_coupon, .orderconfirm_settle {
+    width: 100%;
+    width: 100vw;
+  }
+  .orderconfirm_item_title {
+    @include font-dpr(($font-base-xs+4px), $title-height);
+    color: $c-black-3;
+  }
+  .orderconfirm_item {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0 auto;
+    width: calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    background-color: #fff;
+    @include rem((
+      padding: 0 40px 40px,
+    ));
+    text-align: center;
+  }
+  .orderconfirm_headtitle {
+    @include font-dpr($font-base-sm, 1.333333rem);
+    color: $c-black-3;
+    text-align: center;
+  }
+  .orderconfirm_pay_online, .orderconfirm_pay_offline {
+    text-align: left;
+    @include font-dpr(($font-base-xs+4px), 1.333333rem);
+    color: $c-black-3;
+    @include rem((
+      height: $title-height
+    ));
+  }
+
+  .orderconfirm_item_cheque {
+  }
+  .orderconfirm_cheque_title_prefix {
+    @include font(($font-base-xs+4px));
+    color: $c-black-3;
+  }
+
+  // radio
+  @include beautifyCheckbox(0.293333rem, 0.293333rem, '\0056', $c-black-9);
+  .chkbox:checked + label {
+    color: $c-main--b;
+  }
+  .orderconfirm_chkbox {
+    float: right;
+    @include clearfix;
+    @include rem((
+      width: 44px,
+      height: 44px,
+      margin: 28px 20px 0 0 !important
+    ));
+  }
+  .cheque_label {
+    margin: 0 40px 0 6px;
+    @include font-dpr(($font-base-xs+4px), 48px);
+    color: $c-black--cd6;
+  }
+  .orderconfirm_cheque_input {
+    width: 400px;
+    height: 48px;
+    padding-left: 15px;
+    border-radius: 4px;
+    border: 1px solid $c-black--cd6;
+    @include font(($font-base-xs+4px));
+    color: $c-black-3;
+  }
+  .orderconfirm_cheque_content {
+    @include font(($font-base-xs+4px), 48px);
+    color: $c-black-3;
+  }
+
+  // 优惠券
+  .orderconfirm_icon_close {
+    margin: 29px 51px 37px 0;
+    border: none;
+    width: 22px;
+    height: 22px;
+    background-color: transparent;
+    position: relative;
+    &:before {
+      @include iconfont('\0048');
+      @include font-icon(22px);
+      left: 0;
+      color: $c-black--cd6;
+    }
+  }
+  .orderconfirm_coupon_title {
+    display: inline-block;
+    @include font($font-base-sm, 80px);
+    color: #666;
+  }
+  .orderconfirm_coupon_usage {
+    display: inline-block;
+    margin-left: 16px;
+    @include font($font-base-sm);
+    color: $c-main--b;
+  }
+  .orderconfirm_coupon {
+    margin: 0 auto;
+    padding: 0 30px 60px;
+  }
+  .orderconfirm_coupon_container {
+    @include flex-container(left);
+  }
+  .orderconfirm_item_coupon {
+    margin-left: 50px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    -moz-box-shadow: 0px 0px 2px 8px $c-box-line;
+    -webkit-box-shadow: 0px 0px 2px 8px $c-box-line;
+    box-shadow: 0px 0px 2px 8px $c-box-line;
+  }
+  .orderconfirm_coupon_tip, .orderconfirm_couponcode_tip {
+    display: inline-block;
+    width: 50%;
+    height: 60px;
+    margin: 6px 0 30px;
+    @include font(($font-base-xs+2px), 60px);
+    text-align: center;
+  }
+  .orderconfirm_coupon_tip {
+    color: $c-main--b;
+  }
+  .coupon_tip--addon {
+    border-bottom: 2px solid $c-main--b;
+  }
+  .orderconfirm_couponcode_tip {
+    color: $c-black-9;
+  }
+  .orderconfirm_couponcode_container {
+    text-align: center;
+  }
+  .orderconfirm_couponcode {
+    width: 590px;
+    height: 48px;
+    padding-left: 16px;
+    border: 1px solid $c-black--cd6;
+    border-radius: 4px;
+    @include font(($font-base-xs+4px), 48px);
+    color: #333;
+  }
+  .couponcode_input_container {
+    width: 590px;
+    margin: 0 auto;
+  }
+  .couponcode_invalid, .couponcode_expire {
+    & {position: relative; }
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include font(($font-base-xs+4px), 50px);
+      color: #FF4B4B;
+    }
+  }
+  .couponcode_invalid {&:before {content: '无效优惠码'; } }
+  .couponcode_expire {&:before {content: '优惠码已过期'; } }
+  .orderconfirm_couponcode_btn {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin: 30px auto 0;
+    border: none;
+    border-radius: 4px;
+    @include mainColorGradient;
+    @include font(($font-base-xs+4px), 50px);
+    color: #fff;
+  }
+
+  // 结算
+  .orderconfirm_settle {
+    text-align: left;
+    margin: 0 auto;
+    padding: 0.8rem 0.26667rem;
+  }
+  .orderconfirm_settle_header {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+  }
+  .orderconfirm_settle_title, .orderconfirm_settle_detail {
+    display: block;
+    margin-bottom: 18px;
+    @include font(($font-base-xs+4px), 22px);
+    color: $c-font-4a;
+  }
+  .orderconfirm_settle_content {
+    display: inline-block;
+    text-align: right;
+    float: right;
+    padding-right: 0.26667rem;
+  }
+  .orderconfirm_settle_detail {
+    text-align: right;
+  }
+  .orderconfirm_settle_forpay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    text-align: right;
+    width: 100%;
+    height: 120px;
+    height: 1.6rem;
+    padding: 20px 40px 0 0;
+    padding: .26667rem .53333rem 0 0;
+
+  }
+  .settle_forpay_title {
+    @include font(($font-base-xs+4px));
+    color: #4A4A4A;
+  }
+  .settle_forpay_btn {
+    height: $item-height;
+    padding: 0 24px;
+    border: none;
+    border-radius: 4px;
+    @include mainColorGradient;
+    @include font(($font-base-xs+4px));
+    color: #fff;
+  }
+
+}
+
+@mixin orderconfirm-page {
+  .orderconfirm_item_title, .addrcard_container, .orderconfirm_item,
+  .orderconfirm_item_cheque, .orderconfirm_coupon, .orderconfirm_settle {
+    width: 1086px;
+    background-color: #fff;
+  }
+  .orderconfirm_item_title {
+    height: 70px;
+    margin: 0.8rem auto 8px;
+    padding: 0 0.8rem;
+    @include font($font-base-sm, 70px);
+    color: #333;
+    -moz-box-shadow: 0px 0px 2px 8px $c-box-line;
+    -webkit-box-shadow: 0px 0px 2px 8px $c-box-line;
+    box-shadow: 0px 0px 2px 8px $c-box-line;
+  }
+  .addrcard_container {
+    @include flex-container(left);
+    margin: 0 auto;
+    padding: 30px 30px 0;
+  }
+  .user-addr-info {
+    margin-right:48px;
+    margin-bottom:30px;
+  }
+  .orderconfirm_item {
+    margin: 0 auto;
+    padding: 30px 30px;
+    & > p {
+      margin-right: 24px;
+      @include itemBtn;
+      text-align: center;
+      cursor: pointer;
+    }
+    & > p.item--active {
+      border: 1px solid $c-main--b;
+      color: $c-main--b;
+    }
+    & > p.orderconfirm_time_limit {
+      width: 140px;
+      height: $item-height-medium;
+      text-align: left;
+      @include font(($font-base-xs+4px));
+      & > span:first-child {
+        margin-top: 18px;
+      }
+      & > span {
+        display: inline-block;
+        width: 120px;
+        @include font(($font-base-xs+2px));
+      }
+    }
+  }
+
+  .orderconfirm_item_cheque {
+    margin: 0 auto;
+    padding: 30px 30px;
+  }
+  .orderconfirm_cheque_title_prefix {
+    @include font(($font-base-xs+4px), 48px);
+    color: $c-black-3;
+  }
+
+  // radio
+  .iconBlue {
+    font-size: 22px !important;
+  }
+  .orderconfirm_input_radio {
+    display: inline-block;
+    position: relative;
+    vertical-align: sub;
+  }
+  .orderconfirm_radio {
+    z-index: 89;
+    position: absolute;
+    top: 0;
+    left: 0;
+    vertical-align: middle;
+    margin-left: 4px;
+    display: none;
+  }
+  .orderconfirm_refresh_radio {
+    z-index: 99;
+    position: relative;
+    @include refreshCheckbox();
+    background-color: transparent;
+  }
+  input[type="radio"].orderconfirm_refresh_radio:checked {
+    border: none;
+    & + label {
+      display: inline;
+    }
+  }
+  // @include beautifyCheckbox();
+  // .chkbox {
+  // 	margin-bottom: 16px;
+  // }
+  // .chkbox:checked + label {
+  // 	color: $c-main--b;
+  // }
+  .cheque_label {
+    margin: 0 40px 0 6px;
+    @include font(($font-base-xs+4px), 48px);
+    color: $c-black--cd6;
+  }
+  .orderconfirm_cheque_input {
+    width: 400px;
+    height: 48px;
+    padding-left: 15px;
+    border-radius: 4px;
+    border: 1px solid $c-black--cd6;
+    @include font(($font-base-xs+4px));
+    color: $c-black-3;
+  }
+  .orderconfirm_cheque_content {
+    @include font(($font-base-xs+4px), 48px);
+    color: $c-black-3;
+  }
+
+  // 优惠券
+  .orderconfirm_close {
+    display: inline-block;
+    margin-right: 51px;
+    margin-left: 37px;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    background-color: transparent;
+  }
+  .orderconfirm_coupon_title {
+    display: inline-block;
+    @include font($font-base-sm, 80px);
+    color: #666;
+  }
+  .orderconfirm_coupon_usage {
+    display: inline-block;
+    margin-left: 16px;
+    @include font($font-base-sm);
+    color: $c-main--b;
+  }
+  .orderconfirm_coupon {
+    margin: 0 auto;
+    padding: 0 30px 60px;
+  }
+  .orderconfirm_coupon_container {
+    @include flex-container(left);
+  }
+  .orderconfirm_item_coupon {
+    margin-left: 50px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    -moz-box-shadow: 0px 0px 2px 8px $c-box-line;
+    -webkit-box-shadow: 0px 0px 2px 8px $c-box-line;
+    box-shadow: 0px 0px 2px 8px $c-box-line;
+  }
+  .orderconfirm_coupon_tip, .orderconfirm_couponcode_tip {
+    display: inline-block;
+    width: 50%;
+    height: 60px;
+    margin: 6px 0 30px;
+    @include font(($font-base-xs+2px), 60px);
+    text-align: center;
+  }
+  .orderconfirm_coupon_tip {
+    color: $c-main--b;
+  }
+  .coupon_tip--addon {
+    border-bottom: 2px solid $c-main--b;
+  }
+  .orderconfirm_couponcode_tip {
+    color: $c-black-9;
+  }
+  .orderconfirm_couponcode_container {
+    text-align: center;
+  }
+  .orderconfirm_couponcode {
+    width: 590px;
+    height: 48px;
+    padding-left: 16px;
+    border: 1px solid $c-black--cd6;
+    border-radius: 4px;
+    @include font(($font-base-xs+4px), 48px);
+    color: #333;
+  }
+  .couponcode_input_container {
+    width: 590px;
+    margin: 0 auto;
+  }
+  .couponcode_invalid, .couponcode_expire {
+    & {position: relative; }
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include font(($font-base-xs+4px), 50px);
+      color: #FF4B4B;
+    }
+  }
+  .couponcode_invalid {&:before {content: '无效优惠码'; } }
+  .couponcode_expire {&:before {content: '优惠码已过期'; } }
+  .orderconfirm_couponcode_btn {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    margin: 30px auto 0;
+    border: none;
+    border-radius: 4px;
+    @include mainColorGradient;
+    @include font(($font-base-xs+4px), 50px);
+    color: #fff;
+  }
+
+  // 结算
+  .orderconfirm_settle {
+    text-align: right;
+    margin: 0 auto;
+    padding: 30px 30px;
+  }
+  .orderconfirm_settle_header {
+    display: inline-block;
+    width: 120px;
+    text-align: left;
+  }
+  .orderconfirm_settle_title, .orderconfirm_settle_detail {
+
+    display: block;
+    margin-bottom: 18px;
+    @include font(($font-base-xs+4px), 22px);
+    color: $c-font-4a;
+  }
+  .orderconfirm_settle_detail {
+    text-align: right;
+  }
+  .orderconfirm_settle_forpay {
+    margin-top: 48px;			// 78 - 30
+
+  }
+  .settle_forpay_title {
+    @include font(($font-base-xs+4px));
+    color: $c-black-4a;
+  }
+  .settle_forpay_detail {
+    text-align: right;
+    color: #55a0ff;
+    display: inline-block;
+    color: $c-main--b;
+    @include font(($font-base-xs+4px));
+    margin-right: 56px;
+  }
+  .settle_forpay_btn {
+    height: 50px;
+    padding: 0 24px;
+    border: none;
+    border-radius: 4px;
+    @include mainColorGradient;
+    @include font(($font-base-xs+4px));
+    color: #fff;
+  }
+
+}
+$font-size:18px;
+$title-bg-wgite:#FFFFFF;
+$title-font-color:#333;
+$title-font-size:18px;
+$radius:4px;
+
+$item-height:200px;
+$item-width:278px;
+$item-border-color:#CCCCD6;
+$item-font-color:#CCCCD6;
+$item-userName-color:#4a4a4a;
+$item-userName-size:18px;
+$item-user-info-color:#999;
+$radius:4px;
+
+
+$font-family:"PingFang SC","PingHei","PingFangHei","Hiragino Sans GB","Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif, monospace;
+body{
+  margin: 0;
+  padding: 0;
+  font-family:$font-family ;
+}
+@mixin addrManage{
+  .user-addr-info:hover {
+    border: 2px solid $c-main--b;
+    cursor: pointer;
+  }
+  .user-addr-info{
+    position: relative;
+    box-sizing: border-box;
+    height: $item-height;
+    width: $item-width;
+    border: 1px solid $item-border-color;
+    border-radius: $radius;
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select:none;
+    -khtml-user-select:none;
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: pointer;
+    float: left;
+    padding: 24px 22px;
+    color: $item-user-info-color;
+    font-size: 16px;
+    overflow: hidden;
+    .user-name{
+      color: $item-userName-color;
+      font-size: 18px;
+      line-height: 22px;
+      .default-addr{
+        float: right;
+        font-size: 14px;
+        color: $item-user-info-color;
+        line-height: 22px;
+      }
+    }
+    .user-phone{
+      line-height:14px;
+      margin-top: 7px;
+      margin-bottom: 9px;
+      color: $item-userName-color;
+    }
+    .user-addr{
+      line-height: 22px;
+      margin-top: 5px;
+    }
+    .edit-addr-box{
+      position:absolute;
+      width: 100%;
+      height: 42px;
+      box-sizing: border-box;
+      line-height: 42px;
+      text-align: center;
+      background: #FFFFFF;
+      box-shadow: 0px -2px 10px 0px rgba(0,0,0,0.05);
+      border-radius: 0px 0px 4px 4px;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+      display: none;
+      .adit-addr-btn{
+        box-sizing: border-box;
+        height: 23px;
+        line-height: 23px;
+        text-align: center;
+        width: 50%;
+        float: left;
+        margin-top: 9px;
+        border-right: 1px solid $item-border-color;
+      }
+      .del-addr-btn{
+        box-sizing: border-box;
+        width: 50%;
+        text-align: center;
+        height: 23px;
+        line-height: 23px;
+        float: left;
+        margin-top: 9px;
+      }
+    }
+  }
+
+  .add-addr{
+    text-align: center;
+    padding-top: 65px;
+    p{
+      line-height: 30px;
+      font-size: 16px;
+      color: $item-font-color;
+      .iconGray{
+        font-size: 26px;
+      }
+    }
+  }
+
+  .addr--active {
+    border: 2px solid $c-main--b;
+    cursor: pointer;
+  }
+}
+
+
+
+
+
+@media screen and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  @include lineGradientIcon();
+  .user-addr-item{
+    background: $white;
+    width: 100%;
+    height: 148px;
+    box-sizing: border-box;
+    padding: 15px 20px;
+    background: #FFFFFF;
+    box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.05);
+    p{
+      font-size: 14px;
+      line-height: 22px;
+    }
+    .user-name{
+      font-size: 16px;
+      color: #4a4a4a;
+      line-height: 22px;
+      .addr-edit-mobile{
+        font-size: 14px;
+        float: right;
+        color: #55A0FF;
+      }
+      .default-addr{
+        float: right;
+        font-size: 14px;
+        margin-right: 20px;
+        color: #9999a3;
+      }
+    }
+    .user-phone{
+      color: #4a4a4a;
+    }
+    .user-addr,.user-pro{
+      font-size: 14px;
+      color: #9999a3;
+    }
+  }
+}
+
+

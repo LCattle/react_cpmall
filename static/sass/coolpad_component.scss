@@ -1,0 +1,243 @@
+@mixin gradient-bg {
+  background: $c-header-temp;
+  background: -webkit-gradient(linear, 0 50%, 100% 50%, from($c-header-start), to($c-header-stop));
+  /*Old gradient for webkit*/
+  background: -webkit-linear-gradient(left, $c-header-start, $c-header-temp, $c-header-stop);
+  /*new gradient for Webkit*/
+}
+
+@mixin iconfont($iconCode) {
+  position: absolute;
+  top: 0;
+  display: inline-block;
+  font-family: 'Glyphter';
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: $iconCode;
+}
+
+@mixin cp-btn($font-size: ($font-base-xs+4px), $text-align: center, $c-font: #55A0FF, $c-border: #55A0FF) {
+  padding: 14px 34px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $c-border;
+  @include font-dpr($font-size);
+  @include font($font-size);
+  text-align: $text-align;
+  color: $c-font;
+}
+
+@mixin inverseMainColorGradient {
+  background: $c-header-temp;
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, $c-header-stop, $c-header-temp 50%, $c-header-start);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, $c-header-stop, $c-header-temp 50%, $c-header-start);
+  /*Opera11*/
+  background: -webkit-gradient(linear, 0 50%, 100% 50%, from($c-header-stop), to($c-header-start));
+  /*Old gradient for webkit*/
+  background: -webkit-linear-gradient(left, $c-header-stop, $c-header-temp 50%, $c-header-start);
+  /*new gradient for Webkit*/
+  background: linear-gradient(left, $c-header-stop, $c-header-temp 50%, $c-header-start);
+  /*new gradient for Webkit*/
+}
+
+@mixin mainColorGradient {
+  background: $c-header-temp;
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, $c-header-start, $c-header-temp 100%, $c-header-stop);
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, $c-header-start, $c-header-temp 100%, $c-header-stop);
+  /*Opera11*/
+  background: -webkit-gradient(linear, 0 50%, 100% 50%, from($c-header-start), to($c-header-stop));
+  /*Old gradient for webkit*/
+  background: -webkit-linear-gradient(left, $c-header-start, $c-header-temp 100%, $c-header-stop);
+  /*new gradient for Webkit*/
+  background: linear-gradient(left, $c-header-start, $c-header-temp 100%, $c-header-stop);
+  /*new gradient for Webkit*/
+}
+
+@mixin itemBtn($height: 50px, $padding: 28px, $c-border: #CCCCD6, $c-border--active: #55A0FF, $font: 16px, $c-font: #CCCCD6, $c-font--active: #55A0FF) {
+  display: inline-block;
+  height: $height;
+  margin-right: 24px;
+  padding: 0 $padding;
+  border: 1px solid $c-border;
+  border-radius: 4px;
+  @include font($font, $height);
+  color: $c-font;
+  &:hover,
+  &:focus,
+  &:active {
+    border: 1px solid $c-border--active;
+    color: $c-font--active;
+  }
+}
+
+@mixin ieCheckbox() {
+  .chkbox {
+    appearance: none;
+    margin: 0;
+    cursor: pointer;
+    vertical-align: bottom;
+    background: #fff;
+    border: none;
+  }
+  .chkbox:active {
+    border: none;
+  }
+  .chkbox:hover {}
+  .chkbox:checked {
+    background: #fff;
+    border: none;
+  }
+  .chkbox:checked:after {
+    left: 0;
+  }
+  .chkbox:focus {}
+}
+
+@mixin mobileCheckboxBeautify {
+  .mobile_checkbox_container {
+    position: relative;
+  }
+  .checkbox_icon_right {
+    z-index: 89;
+    position: absolute;
+    left: 0;
+    vertical-align: middle;
+    @include rem(( margin-left: 8px, ));
+    display: none;
+    &:before {
+      display: none;
+    }
+  }
+  .refresh_checkbox {
+    opacity: 0;
+    z-index: 99;
+    @include refreshCheckbox();
+    width: 0.48rem !important;
+    height: 0.48rem !important;
+    background-color: transparent;
+  }
+  input[type="checkbox"].refresh_checkbox:checked {
+    border: none;
+    & + label {
+      display: inline;
+    }
+  }
+}
+
+@mixin refreshCheckbox($w: 22px, $h: 22px, $c-border: #CCCCD6) {
+  -webkit-appearance: none;
+  appearance: none;
+  width: $w;
+  height: $h;
+  margin: 0;
+  cursor: pointer;
+  vertical-align: bottom;
+  background: #fff;
+  border: 1px solid $c-border;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  &:active,
+  &:focus,
+  &:hover {
+    outline: none;
+  }
+}
+
+@mixin beautifyCheckbox($w: 22px, $h: 22px, $icon: '\0058', $c-border: #CCCCD6, $c-border-hover: #64C8FF) {
+  // 美化checkbox
+  .chkbox {
+    -webkit-appearance: none;
+    appearance: none;
+    width: $w;
+    height: $h;
+    margin: 0;
+    cursor: pointer;
+    vertical-align: bottom;
+    background: #fff;
+    border: 1px solid $c-border;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+  }
+  .chkbox:active {
+    border: none;
+  }
+  .chkbox:hover {
+    border-color: $c-border-hover;
+  }
+  .chkbox:checked {
+    background: #fff;
+    border: none;
+  }
+  .chkbox:checked:after {
+    left: 0;
+    @include iconfont($icon);
+    @include font-icon($w);
+    color: $c-border-hover;
+  }
+  .chkbox:focus {
+    outline: none;
+    border-color: $c-border-hover;
+  }
+}
+
+@mixin lineGradientIcon($size:22px) {
+  .iconGray {
+    font-family: 'Glyphter';
+    font-size: $size;
+    color: #CCCCD6;
+    background-image: #CCCCD6;
+    background: -webkit-linear-gradient(#EEEEF3 0%, #CCCCD6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .iconBlue {
+    font-family: 'Glyphter';
+    font-size: $size;
+    color: #55A0FF;
+    background-image: #55A0FF;
+    background: -webkit-linear-gradient(#64C8FF 0%, #7D7DFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .iconRefresh {
+    font-family: 'Glyphter';
+    font-size: $size;
+  }
+  .iconPureWhite {
+    font-family: 'Glyphter';
+    font-size: $size;
+    color: #FFFFFF;
+  }
+  .iconPureBlue {
+    font-family: 'Glyphter';
+    font-size: $size;
+    color: #55A0FF;
+  }
+}
+
+@mixin noSelectFont {
+  moz-user-select: -moz-none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

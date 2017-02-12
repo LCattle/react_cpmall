@@ -1,0 +1,70 @@
+@import "./coolpad_icon.scss";
+
+// .cp {
+// 	display: inline-block;
+//   font: normal normal normal 14px/1 FontAwesome;
+//   font-size: inherit;
+//   text-rendering: auto;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   transform: translate(0, 0);
+// }
+
+
+html, body {
+	width: 100%;
+	background-color: #eee;
+}
+#render{
+  background-color: #eee;
+  padding-bottom: 70px;
+}
+
+@media screen\0 {
+	#render{
+	  background-color: #eee;
+	  padding-bottom: 70px;
+	}
+}
+
+@media only screen and (max-width: 768px){
+  html, body, #render {
+      width: 100%;
+      width: 100vw;
+      background-color: #eee;
+    }
+    #render {
+      padding-bottom: 0;
+      @include rem((
+        padding-top: 100px,
+        ));
+    }
+}
+
+@media only screen and (max-device-width: 768px){
+    @media only screen and (-webkit-min-device-pixel-ratio: 1.25),
+    only screen and (-moz-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min-device-pixel-ratio: 1.5)  {
+		html, body, #render {
+			width: 100%;
+			width: 100vw;
+			background-color: #eee;
+		}
+		#render {
+		  padding-bottom: 0;
+		  @include rem((
+		  	padding-top: 100px,
+		  	));
+		}
+	}
+}
+
+//daovoice 的聊天按钮
+.daodream-launcher-button{
+	opacity: 0.4 !important;
+	&:hover {
+		opacity: 1!important;
+	}
+
+}

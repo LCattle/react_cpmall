@@ -1,0 +1,215 @@
+@import '../../../static/sass/_rem.scss';
+@import '../../../static/sass/_utilities.scss';
+@import '../../../static/sass/common.scss';
+@import '../../../static/sass/animation.scss';
+@include global-reset;
+// 项目公共变量定义
+@import '../../../static/sass/coolpad_variable.scss';
+// 项目公共样式
+@import '../../../static/sass/coolpad_public.scss';
+// 项目公共UI组件样式
+@import '../../../static/sass/coolpad_component.scss';
+
+$c-split-border: #eee;
+$c-header-font: #fff;
+$c-header-font-inactive: #ddd;
+$header-height-mobile: 100px;
+$c-header-font: #fff;
+$c-footer-font: #999;
+$c-footer-font-active: #333;
+@mixin mobileCommonHF {
+  .app {
+    nav:global(.fa) {
+      font-size: 2em;
+      line-height: 20px;
+    }
+  }
+  @include lineGradientIcon(0.48rem);
+  .navbar,
+  .navbar_header {
+    width: 100%;
+    background-color: $c-black-3;
+    border: none;
+    text-align: center;
+  }
+  .navbar_collapse {
+    width: 100%;
+    max-height: 100% !important;
+    background-color: $c-black-3;
+    text-align: left;
+  }
+  .navbar_collapse_item {
+    display: block;
+    text-align: left;
+    border-bottom: 0.03rem solid rgba(0, 0, 0, 0.05);
+    background-color: $c-black-3;
+    @include rem(( height: $header-height-mobile, margin: 0 37px 0 18px, ));
+    @include font-dpr(($font-base-xs+1px), 1.333333rem); // 100px
+    color: rgba(255, 255, 255, .5);
+  }
+  .navbar_logo_size {
+    vertical-align: middle;
+    @include rem(( width: 160px, height: 32px, ));
+  }
+  .navbar_toggle {
+    display: block !important;
+    position: absolute;
+    float: left;
+    top: 0;
+    left: 0;
+    margin-right: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
+    @include rem(( height: $header-height-mobile, margin-left: 40px, ));
+  }
+  // icon
+  .navbar_toggle_icon {
+    display: block;
+  }
+  .cpmall_fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 89;
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .cpmall_fade--active {
+    display: block;
+  }
+  // icon
+  .icon-setting {
+    display: none;
+  }
+
+  //Footer
+  .cool-footer {
+    background-color: #fff;
+  }
+  .cool_footer {
+    display: none;
+    @include rem(( margin: 40px 0 30px, ));
+  }
+  .cool_footer_guranty {
+    display: none;
+  }
+  .cool_footer_menu,
+  .cool_footer_tip {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .cool_footer_menu_item {
+    display: block;
+    position: relative;
+    width: 100%;
+    width: 100vw;
+    text-align: left;
+    vertical-align: top;
+    border-top: 0.03rem solid #ddd;
+    & > p {
+      display: none;
+    }
+    & > p > a,
+    & > span,
+    & > a {
+      display: block;
+      color: $c-footer-font;
+    }
+    & > p > a {
+      @include rem(( height: 80px, padding: 0 0 0 40px, ));
+      @include font-dpr(($font-base-xs+1px),
+      1.066667rem);
+    }
+    & > span,
+    & > a {
+      @include rem(( height: $header-height-mobile, padding: 0 20px, ));
+      @include font-dpr(($font-base-xs+1px),
+      1.333333rem);
+    }
+  }
+  .cool_footer_menu_item--up {
+    &:after {
+      position: absolute;
+      top: 0;
+      @include rem(( right: 40px, line-height: $header-height-mobile));
+      display: inline-block;
+      font-family: 'Glyphter';
+      font-style: normal;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: '\0069';
+      color: $c-footer-font;
+    }
+  }
+  .cool_footer_menu_item--down {
+    &:after {
+      @include iconfont('\0066');
+      @include rem(( right: 40px, line-height: $header-height-mobile));
+      color: $c-footer-font;
+    }
+  }
+  .cool_footer_menu_item--fix {
+    border-bottom: 0.03rem solid #ddd;
+  }
+  .footer_menu_item--active {
+    color: $c-footer-font-active !important;
+  }
+  //
+  .cool_footer_split_line,
+  .cool_footer_tip {
+    display: none;
+  }
+  .footer_copyright {
+    @include rem(( margin: 0 20px));
+  }
+  .footer_copyright {
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+    text-align: left;
+  }
+  .footer_copyright,
+  .footer_copyright_zh {
+    display: block;
+    @include font-dpr(($font-base-xs+1px));
+    color: $c-footer-font;
+  }
+  .footer_copyright_no {
+    display: inline-block;
+    text-align: left;
+    color: $c-footer-font;
+    @include rem(( height: 54px, padding-top: 8px, margin: 9px 20px));
+    @include font-dpr(($font-base-xs+2px));
+  }
+  .cool_footer_btn {
+    display: inline-block;
+    float: right;
+    @include cp_btn();
+    @include clearfix;
+  }
+  .footer_copyright_sign {
+    display: inline-block;
+    float: right;
+    @include clearfix;
+    @include rem(( height: 54px, margin-left: 30px, margin-right: 20px, ));
+    vertical-align: text-bottom;
+  }
+  // 激活类
+  .top_item--active {
+    color: $c-header-font !important;
+  }
+  .footer_menu_item--active {
+    color: $c-footer-font-active !important;
+  }
+
+  // menuToggle
+  .menutoggle_box {
+    width: 400px; padding: 15px;  background-color: #f0f3f9;
+  }
+}
+
+@include mobileCommonHF;

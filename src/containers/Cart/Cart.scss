@@ -1,0 +1,30 @@
+@import '../../../static/sass/_rem.scss';
+@import '../../../static/sass/_utilities.scss';
+@import '../../../static/sass/common.scss';
+@import '../../../static/sass/animation.scss';
+
+// 项目公共变量定义
+@import '../../../static/sass/coolpad_variable.scss';
+// 项目公共样式
+@import '../../../static/sass/coolpad_public.scss';
+// 项目公共UI组件样式
+@import '../../../static/sass/coolpad_component.scss';
+
+.cartbox_nonself_box {
+  width: 100%;
+  background: #fff;
+  @include rem((
+  	margin-top: 40px,
+  	));
+}
+
+.cartbox_common_nonself_headling{
+  width: 100%;
+  @include rem((
+		padding-left: 40px,
+		border-bottom: 2px solid rgba(0, 0, 0, 0.05)
+  	));
+  color: $c-black-9;
+  background: #fff;
+  @include font-dpr(14px, 1.06667rem);		// 80px
+}

@@ -1,0 +1,234 @@
+@import '../../../static/sass/_rem.scss';
+@import '../../../static/sass/_utilities.scss';
+@import '../../../static/sass/common.scss';
+@import '../../../static/sass/animation.scss';
+@include global-reset;
+// 项目公共变量定义
+@import '../../../static/sass/coolpad_variable.scss';
+// 项目公共样式
+@import '../../../static/sass/coolpad_public.scss';
+// 项目公共UI组件样式
+@import '../../../static/sass/coolpad_component.scss';
+
+$c-split-border: #eee;
+$c-header-font: #fff;
+$c-header-font-inactive: #ddd;
+$header-height-mobile: 100px;
+$c-header-font: #fff;
+$c-footer-font: #999;
+$c-footer-font-active: #333;
+@mixin mobileCommonHF {
+  .app {
+    nav:global(.fa) {
+      font-size: 2em;
+      line-height: 20px;
+    }
+  }
+  @include lineGradientIcon(0.48rem);
+  .navbar,
+  .navbar_header {
+    width: 100%;
+    background-color: $c-black-3;
+    border: none;
+    text-align: center;
+  }
+  .navbar_collapse {
+    width: 100%;
+    max-height: 100% !important;
+    background-color: $c-black-3;
+    text-align: left;
+  }
+  .navbar_collapse_item {
+    display: block;
+    text-align: left;
+    border-bottom: 0.03rem solid rgba(0, 0, 0, 0.05);
+    background-color: $c-black-3;
+    @include rem(( height: $header-height-mobile, margin: 0 37px 0 18px, ));
+    @include font-dpr(($font-base-xs+1px), 1.333333rem); // 100px
+    color: rgba(255, 255, 255, .5);
+  }
+  .navbar_logo_size {
+    vertical-align: middle;
+    @include rem(( width: 160px, height: 32px, ));
+  }
+  .navbar_toggle {
+    display: block !important;
+    position: absolute;
+    float: left;
+    top: 0;
+    left: 0;
+    margin-right: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
+    @include rem(( height: $header-height-mobile, margin-left: 40px, ));
+  }
+  // icon
+  .navbar_toggle_icon {
+    display: block;
+  }
+  .cpmall_fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 89;
+    width: 100%;
+    height: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  .cpmall_fade--active {
+    display: block;
+  }
+  .cpmall_header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    width: 100vw;
+    z-index: 90;
+    text-align: center;
+    // @include gradient-bg;
+    background-color: #333;
+    @include rem(( height: $header-height-mobile, ));
+  }
+  .cpmall_logo {
+    float: none;
+    color: #fff;
+    display: inline-block;
+    background: #333 url('./logo.svg') center center no-repeat;
+    background-size: 50%;
+    @include ellipsis;
+    @include font-dpr($font-base-sm, 1.333333rem);
+    @include rem(( width: 360px, height: $header-height-mobile, ));
+  }
+  .logo_size {
+    vertical-align: middle;
+    @include rem(( width: 160px, height: 32px, ));
+  }
+  .icon-search,
+  .icon-menu,
+  .icon-shopping_cart_solid,
+  .icon-myaccount,
+  .icon-tip_right {
+    color: #fff;
+  }
+  .cpmall_top_menu_item_search {
+    display: none !important;
+  }
+  .icon-menu,
+  .cpmall_top_menu_item {
+    display: inline-block;
+    position: relative;
+    @include rem(( line-height: 100px, margin-right: 40px, ));
+  }
+  #myShoppingCart {
+    //display: none;
+  }
+  .cpmall_top_shopmenu {
+    display: none;
+  }
+  .mobile_search {
+    width: 100%;
+    background: transparent;
+    border: 0.03rem solid #fff;
+    @include font-dpr(($font-base-xs+2px),
+    0.933333rem);
+    @include rem(( padding-left: 12px, border-radius: 8px, height: 70px, line-height: 70px, ));
+    color: #fff;
+  }
+  .cpmall_menu_cart_num {
+    position: absolute;
+    min-width: 0.32rem;
+    padding: 0 0.053333rem;
+    text-align: center;
+    height: 0.426667rem;
+    border-radius: 50%;
+    background: #FF4B4B;
+    left: 0.586667rem;
+    top: 0.32rem;
+    @include font(0.32rem,
+    0.426667rem);
+    color: #fff;
+    display: none;
+  }
+  // icon
+  .cpmall_icon_menu {
+    position: absolute;
+    display: block;
+    top: 0;
+    @include rem(( left: 40px, ));
+  }
+  .cpmall_top_menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 0;
+    padding: 0;
+  }
+  .icon-setting {
+    display: none;
+  }
+  // 激活类
+  .top_item--active {
+    color: $c-header-font !important;
+  }
+  .footer_menu_item--active {
+    color: $c-footer-font-active !important;
+  }
+
+  // menuToggle
+  .menutoggle_box {
+    width: 400px; padding: 15px;  background-color: #f0f3f9;
+  }
+  .cpmall_top_toolbar {
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    background-color: transparent;
+    @include rem(( top: 99px, ));
+    -webkit-transition: height 0.6s;
+    -moz-transition: height 0.6s;
+    -o-transition: height 0.6s;
+    transition: height 0.6s;
+  }
+  .cpmall_top_tb_fade {
+    width: 100%;
+    width: 100vw;
+    height: 100%;
+    height: 100vh;
+    background-color: #000;
+    opacity: 0.6;
+  }
+  .cpmall_top_tb_item {
+    display: block;
+    text-align: left;
+    background-color: $c-black-3;
+    @include rem(( height: $header-height-mobile, padding: 0 37px 0 38px, ));
+    & > a {
+      color: rgba(255, 255, 255, .5);
+      @include font-dpr(($font-base-xs+1px), 1.333333rem); // 100px
+      display: inline-block;
+      width: 100%;
+    }
+    & > a:hover {
+      color: $c-header-font;
+    }
+  }
+  .cpmall_top_tb_item_mobile {
+    position: relative;
+    display: block;
+    background-color: $c-black-3;
+    @include rem(( height: $header-height-mobile, padding: 20px 37px 20px 38px ));
+    & > .icon-search {
+      display: inline-block;
+      position: absolute;
+      @include rem(( top: 38px, right: 30px, ));
+    }
+  }
+}
+
+@include mobileCommonHF;

@@ -1,0 +1,156 @@
+@import '../../../static/sass/_rem.scss';
+@import '../../../static/sass/_utilities.scss';
+@import '../../../static/sass/common.scss';
+@import '../../../static/sass/animation.scss';
+@import '../../../static/sass/coolpad_icon.scss';
+
+@include global-reset;
+
+// 项目公共变量定义
+@import '../../../static/sass/coolpad_variable.scss';
+// 项目公共样式
+@import '../../../static/sass/coolpad_public.scss';
+// 项目公共UI组件样式
+@import '../../../static/sass/coolpad_component.scss';
+
+@import '../../../static/sass/idangerous.swiper.scss';
+
+$main-banner-height: 600px;
+$small-banner-height: 300px;
+@mixin mobileIndexPage {
+  /* hack start */
+  hack end
+  .swiper-container,
+  .slider_item,
+  .slider_image {
+    width: 100%;
+    width: 100vw;
+    @include rem(( height: $main-banner-height));
+  }
+  ul[role="nav"]{
+    display: block;
+  }
+  .pagination {
+    position: absolute;
+    z-index: 20;
+    @include rem(( bottom: 20px));
+    width: 100%;
+    text-align: center;
+  }
+  .swiper-pagination-bullet {
+    display: inline-block;
+    @include rem(( width: 20px, height: 20px, border-radius: 20px, margin: 0 10px));
+    background: #EEEEF3;
+    opacity: 0.8;
+    border: 0.03rem solid rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+  }
+  .swiper-pagination-bullet-active {
+    background: #fff;
+  }
+  .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets {
+    @include rem((
+      bottom: 20px,
+      ));
+  }
+  .banner_small {
+    @include rem(( margin-top: 12px));
+  }
+  .banner_small_container {
+    display: block;
+    width: calc(100% - 0.32rem); // 24px
+    width: -webkit-calc(100% - 0.32rem);
+    @include rem(( padding: 0 12px, ));
+  }
+  .banner_small_item {
+    width: 100% !important;
+    overflow: hidden;
+    @include rem(( margin-bottom: 12px));
+  }
+  .banner_small_link {
+    display: block;
+    & > img {
+      overflow: hidden;
+      width: 100%;
+      @include rem(( // height: 480px,
+      border-radius: 8px, ));
+    }
+  }
+  .banner_small_item--fix {
+    margin-bottom: 0px;
+  }
+  select-phone-box {
+    display: none;
+  }
+  .goods-start-mobile {
+    width: -webkit-calc(100% - 3%);
+    width: calc(100% - 3%);
+    margin: 0px auto;
+  }
+ /* small banner*/
+  .small_banner_item {
+    width: -webkit-calc(100% - 3%);
+    width: calc(100% - 3%);
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    margin: 0px auto;
+    overflow: hidden;
+    margin-top: 0.18667rem;
+    border-radius: .10666rem;
+  }
+  /*hot phone*/
+  .hot_phone_box{
+    width: -webkit-calc(100% - 4%);
+    width: calc(100% - 4%);
+    margin: 0px auto;
+    @include rem((
+      margin-top: 40px,
+    ));
+     .icon{
+      vertical-align: middle;
+      background: none;
+      color: #999;
+      font-size: .52rem;
+      display: inline-block;
+    width: auto;
+    float: left;
+    }
+    .title_text_item{
+      vertical-align: middle;
+       @include font-dpr(14px, .53333rem);
+       color: #999;
+    }
+  }
+  .title_text{
+    display:inline-block;
+    @include rem((
+      height: 40px,
+      
+    ));
+  }
+  
+  .more{
+    display: line-block;
+    float: right;
+    @include rem((
+      height: 40px,
+    ));
+    @include font-dpr(14px, .53333rem);
+    & > .icon{
+     font-size: .6rem;
+     float: none;
+    }
+  }
+
+  .link-payment{
+    width:100%;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    height: .5rem;
+    line-height: .5rem;
+  }
+
+}
+
+@include mobileIndexPage; 

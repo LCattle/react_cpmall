@@ -1,0 +1,298 @@
+@import '../../../static/sass/_rem.scss';
+@import '../../../static/sass/_utilities.scss';
+@import '../../../static/sass/common.scss';
+
+// 项目公共变量定义
+@import '../../../static/sass/coolpad_variable.scss';
+// 项目公共UI组件样式
+@import '../../../static/sass/coolpad_component.scss';
+
+$c-bg: #F5F8FF;
+$c-bg-sub: #F9F9FC;
+$c-split-border: #eee;
+$c-header-font: #fff;
+$c-header-font-inactive: #ddd;
+$c-btn-bg: #CCCCD6;
+$c-btn-bg-active: #64C8FF;
+$c-checkbox-inactive: #7D7DFF;
+$c-font: #999;
+$c-font-sub: #666;
+$c-font-active: #333;
+$c-font-label: #FF4B4B;
+$c-font-aside: #55A0FF;
+$c-font-qty: #4A4A4A;
+$content-item-height: 220px;
+$content-item-img-height: 160px;
+$content-aside-height: 80px;
+$c-box-line: rgba(245, 245, 245, 0.6);
+$c-split-line: rgba(225, 225, 225, 0.6);
+
+@mixin icon-common {
+  display: inline-block;
+  @include rem(( width: 52px, height: 52px));
+  text-align: center;
+  position: relative;
+  vertical-align: top;
+  background-color: transparent;
+}
+
+@mixin mobileCartboxCommon {
+  @include lineGradientIcon(0.48rem);
+  .cartbox_common {
+    width: 100% !important;
+    width: 100vw !important;
+    position: relative;
+    @include rem(( padding-bottom: 80px, border-bottom: 2px solid rgba(0, 0, 0, 0.05)));
+    background-color: #F5F8FF;
+  }
+  .cartbox_common_bg {
+    background-color: #fff !important;
+    margin-top: .02rem;
+  }
+  .cartbox_common_headline,
+  .cartbox_common_headbar {
+    display: none;
+  }
+  .cartbox_common_main {
+    width: calc(100% - 1.066667rem);
+    width: -webkit-calc(100% - 1.066667rem);
+    @include flex-container(left);
+    flex-wrap: nowrap;
+    @include rem(( padding: 40px 40px 0, height: $content-item-height));
+  }
+  .cartbox_common_announce {
+    display: block;
+    width: 100%;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    border-top: none;
+    padding-left: 0;
+    @include rem(( height: 40px, border-bottom: 2px solid #FF4B4B));
+    @include font-dpr(($font-base-xs), 0.533333rem);
+    color: #FF4B4B;
+  }
+  .cartbox_common_chkbox {
+    width: auto;
+    height: auto;
+    @include rem(( margin-top: 58px, padding: 0 36px 0 0));
+    text-align: center;
+  }
+  .cartbox_common_content_item {
+    display: block;
+    height: auto;
+  }
+  .cartbox_common_desc {
+    @include rem(( width: $content-item-img-height, margin-right: 20px));
+    text-align: left;
+  }
+  .cartbox_common_for_mobile {
+    position: relative;
+    @include rem(( width: 360px, ));
+  }
+  .cartbox_common_title {
+    display: inline-block !important;
+    @include rem(( width: 412px, padding: 20px 0 20px, ));
+  }
+  .cartbox_common_tablewrap {
+    height: auto;
+  }
+  .cartbox_common_name {
+    display: block;
+    @include rem(( width: 412px, ));
+    @include ellipsis();
+    @include font-dpr(($font-base-xs+2px));
+    color: $c-black-4a;
+  }
+  .cartbox_common_label {
+    display: none;
+  }
+  .cartbox_common_price {
+    @include rem(( padding-bottom: 9px));
+  }
+  .cartbox_common_sub_for_mobile > .cartbox_common_for_mobile > .cartbox_common_price {
+    @include rem(( margin-top: -30px, padding-left: 16px, padding-bottom: 9px));
+  }
+  .cartbox_common_newprice {
+    display: inline-block;
+    color: $c-font-aside;
+    @include font-dpr(($font-base-xs+2px));
+    @include rem(( padding-right: 20px));
+  }
+  .cartbox_common_price_del {
+    color: $c-btn-bg;
+    @include font-dpr(($font-base-xs+2px));
+    text-decoration: line-through;
+  }
+  .cartbox_common_addsub {
+    text-align: left;
+    @include rem(( line-height: 52px));
+  }
+  .cartbox_common_num {
+    display: inline-block;
+    color: $c-font-qty;
+    @include font-dpr(($font-base-xs+4px), 0.693333rem); // 52px
+  }
+  .cartbox_common_num_for_mobile {
+    @include rem(( margin: 0 32px, padding-left: 20px, ));
+  }
+  .cartbox_common_totalprice {
+    display: none;
+  }
+  .cartbox_common_btn {
+    @include icon-common;
+    @include rem(( font-size: 40px, ));
+    vertical-align: top;
+  }
+  .cartbox_common_chkbox {
+    @include rem(( width: 60px, ));
+    text-align: center;
+    position: relative;
+    z-index: 79;
+  }
+  .cartbox_common_icon_right {
+    z-index: 89;
+    position: absolute;
+    left: 0;
+    vertical-align: middle;
+    @include rem(( margin-left: 8px, width: 44px, height: 44px, top: 30px, ));
+    display: none;
+    &:before {
+      display: none;
+    }
+  }
+  .refresh_checkbox {
+    z-index: 99;
+    @include refreshCheckbox();
+    width: 0.48rem !important;
+    height: 0.48rem !important;
+    background-color: transparent;
+    opacity: 0;
+    @include rem(( margin-top: 30px, margin-left: 12px));
+  }
+  input[type="checkbox"].refresh_checkbox + label {
+    display: inline-block;
+  }
+  input[type="checkbox"].refresh_checkbox {
+    & + label {
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNjkwQ0U0NkNDMTgxMUU2OUJDMEJGOTM5NEEzNDJDQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNjkwQ0U0N0NDMTgxMUU2OUJDMEJGOTM5NEEzNDJDQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkU2OTBDRTQ0Q0MxODExRTY5QkMwQkY5Mzk0QTM0MkNDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkU2OTBDRTQ1Q0MxODExRTY5QkMwQkY5Mzk0QTM0MkNDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+VOgpiwAAAvBJREFUeNqslUtoE1EUhmduJjNNaqqNlRpqC3YhSkHoRrF1YZciWtz5XIogLsTWTUFciC661e5FfItUsKKIiCsVaY2t1EcqtWmSJulMJskkk2Qyj+s/pi3pi9omFw7M3Jn7nXPv/c85LKWUWW1omt5ZLBrHDcM8YJrWHnuOEDbmcDiGed4xJAj8C7znV1rLrgQuFvV9qqr16brRXYIRGYCQ/WxZtAlrGux1Dgf54XIJ/W63cGcZxP6h3BQl1xOLyRSmp1LZ24VC8SAi9gJoQxk812Mn7ZlMrlcUU9+j0QRNJJRn9j/lnEVQgPojEYlKUvoNot691OlSw/HwCKR3Zkais7PJL4ZhNC4DK4p6MRwWqSwr9yzL4taClls2mz9trwX8HdYKC2BNK7aFw7MaPrxfL7Rst9emp+M0mczcWAADOIRJy3awEahtCMiJ8/4WCsULuINdBJfTkc9rR2pq+Kc87xxnNjhYltU9Hvd1w7CEbDZ3gahq4QQugXG7ax4yFQ5I7yXHETGX044RbH+/7Y3nua+VgqF1leM4P/S/k0AizSzLpJFNMlOFgaSZwXkzpHT2/9KPVgNMS4Mh8PDHNM1N8OKuBhgZ2GjjCZTwWddNFyTSVoVoBaisHccaJLW1rudzmXemUjAU1lUoaD6o4zVBZfrgcvHDqVTmlC3sSsCJROqqHWRdXe1dAqkZXu/mm5CIEItJA7bWNwZNX0qn1Q5AB5ETHxdSMhiMDvr9v2gkIg6sN50VJXt0bOy3MT4+KSMvWhdVN0S8NRAI+kdGftKpqegTlM3m/4FKUur86OiEASvCweH5+UUdBHBfMBh7gPM+hNqRbGjYcqu+3vMILSiAz+Z8DqBdNaEedMly+hwuvRPKSrS0bD+LY3i1amvCOx+Py1dEMXkZ2/IiRRk4CTidXGjOeRN20wrj0bIYr7fusc+3rU8QnJNr9rxS3zN2JJPpk7iQblS/vUh9z1z/M7GDCVSyt4Deh1w/rbT+rwADAKaJ6CoZahe2AAAAAElFTkSuQmCC) no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
+    }
+  }
+  input[type="checkbox"].refresh_checkbox:checked {
+    border: none;
+    & + label {
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0Mzg1RTRCQkNDMTkxMUU2QTUwN0M5RTE0N0MyQTRBOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0Mzg1RTRCQ0NDMTkxMUU2QTUwN0M5RTE0N0MyQTRBOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQzODVFNEI5Q0MxOTExRTZBNTA3QzlFMTQ3QzJBNEE4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjQzODVFNEJBQ0MxOTExRTZBNTA3QzlFMTQ3QzJBNEE4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+HaOP/gAAA/RJREFUeNqUlW1Mm1UUx3/P01Jqy8tg3SADRhBw6qbL3DqN8SVbSEBYZczM7YMmiB9MdJptRkh8jSZ+8YMfnIlRp9vcYoyJwOKCWwBxajoVGBkksA2FFd8mY0W2UfpCW8/tQ1kdrW43uentuef+n3P/53/O1aLRKMlGMIyl20ONe5StIxdxeqcpFk8ty8r48hz61hfTem8JzfLfm+y8lgzYPcKWllM0ebw4IxE0kw66buxFxD0cMdZ5mQxX3c6eh1bynllnNiWwP4Ttw+95t/MMT4gjFpPyIOWYDUNA4FYX0LVjA/VLMxlbACyg9reO0XrSQ4U9/T/xFgxfEApyGH6phsr8LEaVTY9v7pNI+0apyLSIUZF5AzMjDf7wUr6ng8/lBtZ54J5RXF2D1GdYbgwQ4Tqq+Ja1XcCHfmPdl300xoBDkv3DvbxiihpfuR5AdaOwcGvWCFpN+CKzhs0m4O39PD9xmSL9lIcqzzjOdJOxeT0zGAKh7ELTJja+VodzsZ1f1YfSJDFT02S5z/KYuftntkUlu7rJuFJ8BEKGxNLMCXbNsOfYOL/bhas0jx5lVgmbmKJI0wzwAQ/V+rm/uNt8DQUR+ZCzlOYSBycD/oRIA7Akg3NNtVTGQQ8d5+3BMR4QSmJnhR7GJ7lVn/axKJHboEjnrhKO7NzEI411bFxVRIdPwANiz89muHEzlcuX0K9Am0/welsPu9JNV8+rXAUC2HTJrJ7In2Lk8jQOf5CMDCtTu2updZbRkpfF8AubqVqWy1kFerSX51rcvKoSlng+rhatcW90zKuyqF/ld0auvO4WWp5xsVXKORyaxeILkJ1t54La/6afJ/e1s9ciHOrXVJK0AOzSP/QiB70qeYkcqyh6TlP36de8o5wlgcE46E+n2XKwnffTJRBzEnkqXTsyGdXXlPJF7Api0ONTCV6KpbOHp4+c4MV4NAMjVHzcxkGhyxQDTTwzN8OimtsK6TCvKaf12I+cOe9lRZopoTvJvEkiP/wdby6y83t+LoP7v+KQ6NVmMf9bmvM0GAEF71nJJ7EmdLyPhgNtfGSzLnSOzrVJ4VItYy00ZTMS9WxYywePV/FUzO2+1ey/42aO+mcWNiDloEQvv5rSaKoSDyk55uB5+H5enm9CEkWkvoaGAgdDfn+SMsaQYaoSV6BC22SDi+3xJM9fLCeLP5/dTmV5IV2+aeFrdi6iSIqpFCBqmvHBYnlJdjxKdVkRP6R8mqTBWNrd7Py2l12XrpBvklDVa6LpCZyHjdfDauHK2lUccD3IG9mZjP/vm6fGxb9Z1j3AtqFfqJ6YZIVvhqXKnm7hUq6Udlkxnevv5LPCfAaTnf9HgAEAzs/KlqEx2FIAAAAASUVORK5CYII=) no-repeat;
+      -webkit-background-size: 100%;
+      background-size: 100%;
+    }
+  }
+  .icon_add {
+    &:after {
+      left: 0;
+      @include font-icon(($font-base-sm+4px));
+      @include iconfont('\0049');
+      color: $c-btn-bg;
+    }
+  }
+  .icon_reduce {
+    &:after {
+      left: 0;
+      @include font-icon(($font-base-sm+4px));
+      @include iconfont('\0057');
+      color: $c-btn-bg;
+    }
+  }
+  .icon_close {
+    display: none;
+  }
+  .cartbox_common_sub_for_mobile > .cartbox_common_for_mobile > .cartbox_common_close > .icon_close {
+    display: inherit;
+  }
+  .cartbox_common_service_close {
+    position: absolute;
+    @include rem(( top: 78px, right: 20px, width: 44px, height: 44px, ));
+  }
+  .cartbox_common_gifts {
+    background-color: #F5F8FF;
+  }
+  .cartbox_common_img {
+    @include rem(( width: $content-item-img-height, height: $content-item-img-height, margin: 20px 0));
+    border: 0.03rem solid #CCCCD6;
+  }
+  .null_cart_icon {
+    opacity: 0.6;
+    font-size: 2.6666rem;
+    color: #CCCCCC;
+  }
+  .cartbox_common_sub_for_mobile {
+    @include rem(( margin-left: 140px, height: 200px));
+    border-top: 0.03rem solid rgba(0, 0, 0, 0.05);
+    & > .no_show {
+      display: none;
+    }
+  }
+  .cartbox_common_name_for_mobile {
+    @include rem(( padding: 10px 0 24px 20px, ));
+    & > .cartbox_common_linkcolor {
+      display: none;
+    }
+  }
+  .cartbox_common_addsub > .no_show {
+    display: none !important;
+  }
+  .cartbox_common_num_for_mobile {
+    margin: 0;
+  }
+  .cartbox_common_aside {
+    @include rem(( padding-top: 30px, margin-left: 140px, height: $content-aside-height, ));
+    border-top: 1px solid $c-split-line;
+    .icon_add {
+      &:after {
+        color: $c-btn-bg-active;
+      }
+    }
+  }
+  .cartbox_common_aside_btn {
+    @include icon-common;
+    @include rem(( margin-left: 34px));
+    vertical-align: middle;
+  }
+  .cartbox_common_aside_desc {
+    display: inline-block;
+    @include font-dpr(($font-base-xs+2px));
+    @include ellipsis;
+    @include rem(( width: 240px, margin-right: 20px, ));
+  }
+  .cartbox_common_addsub_box {
+    display: inline-block;
+    border: 0.028rem solid #ccc;
+    @include rem(( border-radius: 8px, ));
+  }
+  .box_item {
+    @include rem(( width: 63px, height: 50px, ));
+    color: #ccc;
+    @include font-dpr(16px, .66667rem);
+  }
+  .cartbox_common_num {
+    background: none;
+    color: #111;
+    text-align: center;
+    @include rem(( border-left: 2px solid #ccc, border-right: 2px solid #ccc));
+  }
+  .show_count,
+  .no_show_count {
+    border: none;
+  }
+  .box_item::after {
+    content: '';
+  }
+  .cartbox_common_linkcolor {
+    color: $c-font-aside;
+  }
+}
+
+@include mobileCartboxCommon;

@@ -1,0 +1,231 @@
+@import '../../../static/sass/_rem.scss';
+@import '../../../static/sass/_utilities.scss';
+@import '../../../static/sass/common.scss';
+@import '../../../static/sass/animation.scss';
+
+// 项目公共变量定义
+@import '../../../static/sass/coolpad_variable.scss';
+// 项目公共样式
+@import '../../../static/sass/coolpad_public.scss';
+// 项目公共UI组件样式
+@import '../../../static/sass/coolpad_component.scss';
+
+$c-bg: #F5F8FF;
+$c-bg-sub: #F9F9FC;
+$c-split-border: #eee;
+$c-header-font: #fff;
+$c-header-font-inactive: #ddd;
+
+$c-btn-bg: #CCCCD6;
+$c-btn-bg-active: #64C8FF;
+$c-checkbox-inactive: #7D7DFF;
+
+$c-font: #999;
+$c-font-sub: #666;
+$c-font-active: #333;
+$c-font-label: #FF4B4B;
+
+$c-font-aside: #55A0FF;
+$c-font-qty: #4A4A4A;
+
+$content-item-height: 220px;
+$content-item-img-height: 160px;
+$content-aside-height: 80px;
+
+$c-box-line: rgba(245,245,245,0.6);
+$c-split-line: rgba(225,225,225,0.6);
+
+@mixin icon-common {
+  display: inline-block;
+  @include rem((
+    width: 44px,
+    height: 44px
+  ));
+  text-align: center;
+  position: relative;
+  vertical-align: top;
+  background-color: transparent;
+}
+
+@media screen and (max-device-width: 768px) and (-webkit-min-device-pixel-ratio: 1.5) {
+
+  .cartbox_brief {
+    width: 100%;
+    width: 100vw;
+  }
+  .cartbox_brief_headline, .cartbox_brief_headbar {
+    display: none;
+  }
+
+  .cartbox_brief_main {
+    width: calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    border-top: 1px solid $c-black--cd6;
+    @include flex-container(left);
+    flex-wrap: nowrap;
+    @include rem((
+      margin: 20px 20px 10px,
+      height: $content-item-height
+    ));
+  }
+  .cartbox_brief_chkbox {
+    @include rem((
+      width: 120px,
+      margin-top: 100px,
+      padding: 0 36px 0 40px
+    ));
+    text-align: center;
+  }
+  .cartbox_brief_desc_wrap, .cartbox_brief_price_wrap {
+    // display: table;
+  }
+  .cartbox_brief_desc {
+    @include rem((
+      width: 160px,
+      margin-right: 20px
+    ));
+    text-align: left;
+  }
+  .carbox_common_for_mobile {
+    @include flex-dynamic();
+    width: 100%;
+  }
+  .cartbox_brief_title {
+    @include rem((
+      padding: 40px 0 20px,
+    ));
+  }
+  .cartbox_brief_name {
+    display: block;
+    width: -webkit-calc(100% - 1.066667rem);
+    width: calc(100% - 1.066667rem);
+    @include ellipsis();
+    @include font-dpr(($font-base-xs+2px));
+  }
+  .cartbox_brief_label {
+    display: none;
+  }
+  .cartbox_brief_price {
+    @include rem((
+      padding-bottom: 9px
+    ));
+  }
+  .cartbox_brief_newprice {
+    display: inline-block;
+    color: $c-font-aside;
+    @include font-dpr(($font-base-xs+2px));
+    @include rem((
+      padding-right: 20px
+    ));
+  }
+  .cartbox_brief_price_del {
+    color: $c-btn-bg;
+    @include font-dpr(($font-base-xs+2px));
+    text-decoration: line-through;
+  }
+  .cartbox_brief_addsub {
+    text-align: left;
+    @include rem((
+      line-height: 52px
+    ));
+  }
+  .cartbox_brief_num {
+    display: inline-block;
+    color: $c-font-qty;
+    @include font-dpr(($font-base-xs+2px), 0.693333rem);		// 52px
+  }
+  .cartbox_brief_num_container {
+    @include font-dpr(($font-base-xs+2px));		// 52px
+  }
+  .cartbox_brief_totalprice {
+    display: none;
+  }
+  .cartbox_brief_btn {
+    @include icon-common;
+    vertical-align: top;
+  }
+  .icon_add {
+    &:after {
+      left: 0;
+      @include font-icon(($font-base-sm+4px));
+      @include iconfont('\0049');
+      color: $c-btn-bg;
+    }
+  }
+  .icon_reduce {
+    &:after {
+      left: 0;
+      @include font-icon(($font-base-sm+4px));
+      @include iconfont('\0057');
+      color: $c-btn-bg;
+    }
+  }
+  .icon_close {
+    display: none;
+  }
+
+  .cartbox_brief_img {
+    @include rem((
+      width: $content-item-img-height,
+      height: $content-item-img-height,
+      margin: 20px 0
+    ));
+  }
+
+  .cartbox_brief_sub_for_mobile {
+    @include rem((
+      margin-left: 140px,
+      height: 200px
+    ));
+    border-top: 0.03rem solid rgba(0,0,0,0.05);
+    & > .no_show {
+      display: none;
+    }
+  }
+  .carbox_common_name_for_mobile {
+    @include rem((
+      padding: 10px 0 24px,
+    ));
+  }
+
+  .cartbox_brief_addsub > .no_show {display: none; }
+  .cartbox_brief_num_for_mobile { margin: 0; }
+
+  .cartbox_brief_aside {
+    @include rem((
+      padding-top: 30px,
+      margin-left: 140px
+    ));
+    border-top: 1px solid $c-split-line;
+    height: $content-aside-height;
+    .icon_add {
+      &:after {
+        color: $c-btn-bg-active;
+      }
+    }
+  }
+  .cartbox_brief_aside_btn {
+    @include icon-common;
+    @include rem((
+      margin-left: 34px
+    ));
+    vertical-align: middle;
+  }
+  .cartbox_brief_aside_desc {
+    @include font-dpr(($font-base-xs+2px));
+    @include rem((
+      margin-left: 42px,
+      margin-right: 20px,
+    ));
+  }
+  .cartbox_brief_linkcolor {color: $c-font-aside; }
+
+  @include beautifyCheckbox();
+  .chkbox {
+    @include rem((
+      width: 44px,
+      height: 44px,
+      // line-height: $content-item-height
+    ));
+  }
+}
